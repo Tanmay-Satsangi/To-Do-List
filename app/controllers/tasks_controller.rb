@@ -1,0 +1,55 @@
+class TasksController < ApplicationController
+    protect_from_forgery with: :null_session
+
+    def create
+        task = Task.new(create_params)
+
+        if task.save
+            render json: { message: "Task Saved Successfully !!!"}, status: 200
+        else
+            error_message(task)
+        end
+    end
+
+    def update
+        task = Task.find(params[:id])
+
+        if task.present? and task.update(task: update_params[:task])
+            render json: { message: "Task Updated Successfully !!!"}, status: 200
+        else
+            error_message(task)
+        end
+    end
+
+    def destroy
+        task = Task.where(id: params[:id])
+
+        if task.present? and task.first.destroy
+                render json: { message: "Task Deleted Successfully !!!"}, status: 200
+        else
+            render json: { errors: "Task not found" }, status: 422
+        end
+    end
+
+    def index
+        render json: { List: Task.all.order(created_at: :desc) }
+    end
+
+    private
+
+    def create_params
+        params.permit(:task)
+    end
+
+    def update_params
+        params.permit(:task)
+    end
+
+    def destroy_task
+        params.permit(:task)
+    end
+
+    def error_message(task)
+        render json: { errors: task.errors.full_messages}, status: 422
+    end
+end
