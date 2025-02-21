@@ -32,21 +32,21 @@ class TasksController < ApplicationController
     end
 
     def index
-        render json: { List: Task.all.order(created_at: :desc) }
+        @tasks = Task.all.order(created_at: :desc) 
     end
 
     private
 
     def create_params
-        params.permit(:task)
+        params.require(:task).permit(:title)
     end
 
     def update_params
-        params.permit(:task)
+        params.permit(:title)
     end
 
     def destroy_task
-        params.permit(:task)
+        params.permit(:title)
     end
 
     def error_message(task)

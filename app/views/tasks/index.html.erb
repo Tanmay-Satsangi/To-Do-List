@@ -1,0 +1,19 @@
+<h1> To Do List </h1>
+
+<%= form_with scope: :task, url: tasks_path do |f| %>
+    <p>
+        <%= f.label :task_Name %>:
+        <%= f.text_field :title %>
+    </p>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+<br>
+    
+<% @tasks.each do |task| %>
+    <%= task.title  %> <br>
+<% end %>
+
