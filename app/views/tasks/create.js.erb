@@ -1,0 +1,8 @@
+// Append the new task to the task list
+$("#task-list").append("<p><%= j @task.title %></p>");
+
+// Clear the form input field
+$("input[type=text]").val("");
+
+// Show success message
+alert("Task added successfully!");

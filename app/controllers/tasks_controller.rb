@@ -5,7 +5,10 @@ class TasksController < ApplicationController
         task = Task.new(create_params)
 
         if task.save
-            render json: { message: "Task Saved Successfully !!!"}, status: 200
+            respond_to do |format|
+                # If the request is AJAX
+                format.js   # This will call `create.js.erb`
+            end
         else
             error_message(task)
         end

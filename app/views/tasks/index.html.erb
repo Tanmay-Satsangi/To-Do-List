@@ -13,7 +13,8 @@
 
 <br>
     
-<% @tasks.each do |task| %>
-    <%= task.title  %> <br>
-<% end %>
-
+<div id="task-list">
+  <% @tasks.each do |task| %>
+    <p><%= task.title %></p>
+  <% end %>
+</div>
