@@ -1,0 +1,30 @@
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #2C5F2D;
+    color: white;
+}
+
+td {
+    background-color: #97BC62;
+}
+

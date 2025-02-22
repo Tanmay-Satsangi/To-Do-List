@@ -14,6 +14,10 @@ class TasksController < ApplicationController
         end
     end
 
+    def edit
+
+    end
+
     def update
         task = Task.find(params[:id])
 
@@ -28,7 +32,9 @@ class TasksController < ApplicationController
         task = Task.where(id: params[:id])
 
         if task.present? and task.first.destroy
-                render json: { message: "Task Deleted Successfully !!!"}, status: 200
+            respond_to do |format|
+                format.js
+            end
         else
             render json: { errors: "Task not found" }, status: 422
         end

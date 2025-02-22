@@ -1,20 +1,41 @@
-<h1> To Do List </h1>
+<h1> To - Do List App </h1>
 
-<%= form_with scope: :task, url: tasks_path do |f| %>
-    <p>
-        <%= f.label :task_Name %>:
-        <%= f.text_field :title %>
-    </p>
-    
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
+<%= render 'form' %>
 
-<br>
-    
-<div id="task-list">
-  <% @tasks.each do |task| %>
-    <p><%= task.title %></p>
-  <% end %>
+    <br>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th> S.No. </th>
+                <th> Task Name </th>
+                <th> Created At </th>
+                <th> Updated At </th>
+                <th> Edit </th>
+                <th> Delete </th>
+            </tr>
+        </thead>
+
+        <tbody id="task-list">
+            <% @tasks.each_with_index do |task, index| %>
+                <tr> 
+                    <td> <%= index + 1 %> </td>
+                    <td> <p><%= task.title %></p> </td>
+                    <td> <p><%= task.created_at %></p> </td>
+                    <td> <p><%= task.updated_at %></p> </td>
+
+                    <td> <%= button_to 'Edit', edit_task_path(task), method: :get %></td>
+                    <td> <%= button_to 'Delete', task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" } %> </td> 
+
+
+                </tr>
+            <% end %>
+        </tbody>        
+    </table>
 </div>
+
+<%= stylesheet_link_tag "task_list" %>
+
+
+
