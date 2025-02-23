@@ -57,3 +57,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# To search, filtering, and sorting capabilities to ActiveRecord models using simple query methods.
+gem 'ransack'

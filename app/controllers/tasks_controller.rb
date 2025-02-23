@@ -41,7 +41,12 @@ class TasksController < ApplicationController
     end
 
     def index
-        @tasks = Task.all.order(created_at: :desc) 
+        @q = Task.ransack(params[:q])
+        @tasks = @q.result.paginate(page: params[:page], per_page: 10)
+    end
+    
+    def search 
+        Task.where("title ilike ?", params[:title])
     end
 
     private
