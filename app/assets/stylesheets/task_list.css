@@ -1,11 +1,22 @@
+body {
+    background-color: #C3B1E1;
+}
+
 .container {
     width: 80%;
     margin: auto;
     text-align: center;
 }
 
+.task {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 h1 {
     text-align: center;
+    color: #333333;
 }
 
 table {
@@ -27,4 +38,3 @@ th {
 td {
     background-color: #97BC62;
 }
-
