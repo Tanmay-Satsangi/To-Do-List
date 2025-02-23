@@ -60,3 +60,7 @@ end
 
 # To search, filtering, and sorting capabilities to ActiveRecord models using simple query methods.
 gem 'ransack'
+
+# for pagination
+gem 'will_paginate' 
+

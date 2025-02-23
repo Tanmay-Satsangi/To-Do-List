@@ -15,14 +15,14 @@ class TasksController < ApplicationController
     end
 
     def edit
-
+        @task = Task.find(params[:id])
     end
 
     def update
         task = Task.find(params[:id])
 
-        if task.present? and task.update(task: update_params[:task])
-            render json: { message: "Task Updated Successfully !!!"}, status: 200
+        if task.present? and task.update(update_params)
+            redirect_to tasks_path
         else
             error_message(task)
         end
@@ -42,7 +42,7 @@ class TasksController < ApplicationController
 
     def index
         @q = Task.ransack(params[:q])
-        @tasks = @q.result.paginate(page: params[:page], per_page: 10)
+        @tasks = @q.result.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     end
     
     def search 
@@ -56,11 +56,11 @@ class TasksController < ApplicationController
     end
 
     def update_params
-        params.permit(:title)
+        params.require(:task).permit(:title) 
     end
 
     def destroy_task
-        params.permit(:title)
+        params.require(:task).permit(:title)
     end
 
     def error_message(task)

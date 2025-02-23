@@ -1,7 +1,7 @@
 <h1> To - Do List App </h1>
 
 <div class="task">
-    <%= render 'form', label_text: "Title", button_name: "Save Task" %>
+    <%= render 'form'%>
 
     <div class="search-task">
         <%= search_form_for @q, url: tasks_path, method: :get do |f| %>
@@ -30,19 +30,24 @@
         <tbody id="task-list">
             <% @tasks.each_with_index do |task, index| %>
                 <tr> 
-                    <td> <%= index + 1 %> </td>
+                    <td> <%= (@tasks.current_page - 1) * @tasks.per_page + index + 1 %> </td>
                     <td> <p><%= task.title %></p> </td>
                     <td> <p><%= task.created_at %></p> </td>
                     <td> <p><%= task.updated_at %></p> </td>
 
                     <td> <%= button_to 'Edit', edit_task_path(task), method: :get %></td>
                     <td> <%= button_to 'Delete', task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" } %> </td> 
-
-
                 </tr>
             <% end %>
         </tbody>        
     </table>
+</div>
+
+<br>
+<br>
+
+<div style="float :right">
+    <%= will_paginate @articles %>
 </div>
 
 <%= stylesheet_link_tag "task_list" %>
