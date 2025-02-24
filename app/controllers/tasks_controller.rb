@@ -54,15 +54,15 @@ class TasksController < ApplicationController
     private
 
     def create_params
-        params.require(:task).permit(:title)
+        params.require(:task).permit(:title, :deadline)
     end
 
     def update_params
-        params.require(:task).permit(:title) 
+        params.require(:task).permit(:title, :deadline) 
     end
 
     def destroy_task
-        params.require(:task).permit(:title)
+        params.require(:task).permit(:title, :deadline)
     end
 
     def error_message(task)
