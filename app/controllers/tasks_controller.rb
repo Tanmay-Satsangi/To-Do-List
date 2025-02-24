@@ -1,16 +1,18 @@
 class TasksController < ApplicationController
     protect_from_forgery with: :null_session
 
+    def new
+        @task = Task.new
+    end
+
     def create
         task = Task.new(create_params)
 
         if task.save
-            respond_to do |format|
-                # If the request is AJAX
-                format.js   # This will call `create.js.erb`
-            end
+            redirect_to root_path
         else
             error_message(task)
+
         end
     end
 
@@ -43,8 +45,6 @@ class TasksController < ApplicationController
     def index
         @q = Task.ransack(params[:q])
         @tasks = @q.result.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
-
-        @task = Task.new
     end
     
     def search 

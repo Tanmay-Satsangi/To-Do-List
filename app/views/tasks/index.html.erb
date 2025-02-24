@@ -1,7 +1,8 @@
 <h1> To - Do List App </h1>
 
+
 <div class="task">
-    <%= render 'form' %>
+    <%= button_to 'Create New Task', new_task_path, method: :get %>
 
     <div class="search-task">
         <%= search_form_for @q, url: tasks_path, method: :get do |f| %>
