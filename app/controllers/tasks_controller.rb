@@ -43,6 +43,8 @@ class TasksController < ApplicationController
     def index
         @q = Task.ransack(params[:q])
         @tasks = @q.result.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+
+        @task = Task.new
     end
     
     def search 
