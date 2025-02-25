@@ -6,5 +6,5 @@ class Task < ApplicationRecord
         ["created_at", "id", "title", "updated_at"]
     end
 
-    enum :priority, { "high": high, "medium": medium, "low": low } 
+    enum :priority, { high: "high", medium: "medium", low: "low" } 
 end
