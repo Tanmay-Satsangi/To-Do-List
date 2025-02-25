@@ -6,7 +6,12 @@
         <br>
 
         <%= f.label :deadline %>
-        <%= f.datetime_field :deadline %>
+        <%= f.datetime_field :deadline, min: Time.current.strftime("%Y-%m-%dT%H:%M") %>
+        <br>
+
+        <%= f.label :priority %>
+        <%= f.select :priority, [["High", "high"], ["Medium", "medium"], ["Low", "low"]], { prompt: "Select Priority" } %>
+
         <br>
 
         <%= f.submit %>

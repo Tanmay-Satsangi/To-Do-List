@@ -22,6 +22,7 @@
                 <th> S.No. </th>
                 <th> Task Name </th>
                 <th> Deadline </th>
+                <th> Priority </th>
                 <th> Edit </th>
                 <th> Delete </th>
             </tr>
@@ -32,7 +33,8 @@
                 <tr> 
                     <td> <%= (@tasks.current_page - 1) * @tasks.per_page + index + 1 %> </td>
                     <td> <p><%= task.title %></p> </td>
-                    <td> <p> <%= task.deadline %> </p> </td>
+                    <td> <p> <%= task.deadline.strftime("%B %d, %Y %I:%M %p") if task.deadline.present? %> </p> </td> 
+                    <td> <p> <%= task.priority.titleize if task.priority.present? %> <p> </td>
 
                     <td> <%= button_to 'Edit', edit_task_path(task), method: :get %></td>
                     <td> <%= button_to 'Delete', task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" } %> </td> 
