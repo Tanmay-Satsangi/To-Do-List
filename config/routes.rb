@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   root "tasks#index"
 
   resources :tasks
+
+  require 'sidekiq/web'
+
+  Rails.application.routes.draw do
+    mount Sidekiq::Web => '/sidekiq' # Accessible at http://localhost:3000/sidekiq
+  end
+
 end
