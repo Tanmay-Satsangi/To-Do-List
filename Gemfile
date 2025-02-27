@@ -66,3 +66,9 @@ gem 'will_paginate'
 
 #Add Sidekiq gem for background application
 gem 'sidekiq'
+
+# JWT authentication
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+gem 'jwt', '~> 2.5'
+gem 'rack-cors'
+gem 'active_model_serializers', '~> 0.10.12'
