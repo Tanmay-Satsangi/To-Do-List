@@ -46,8 +46,8 @@ class TasksController < ApplicationController
         @q = Task.ransack(params[:q])
         @tasks = @q.result.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     end
-    
-    def search 
+
+    def search
         Task.where("title ilike ?", params[:title])
     end
 
@@ -58,7 +58,7 @@ class TasksController < ApplicationController
     end
 
     def update_params
-        params.require(:task).permit(:title, :deadline, :priority) 
+        params.require(:task).permit(:title, :deadline, :priority)
     end
 
     def destroy_task
@@ -66,6 +66,6 @@ class TasksController < ApplicationController
     end
 
     def error_message(task)
-        render json: { errors: task.errors.full_messages}, status: 422
+        render json: { errors: task.errors.full_messages }, status: 422
     end
 end

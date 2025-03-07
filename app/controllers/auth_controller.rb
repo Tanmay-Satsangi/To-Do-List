@@ -1,10 +1,10 @@
 class AuthController < ApplicationController
     protect_from_forgery with: :null_session
 
-    skip_before_action :authorized, only: [:login]
+    skip_before_action :authorized, only: [ :login ]
     rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
-    def login 
+    def login
         @user = User.find_by!(username: login_params[:username])
         if @user.authenticate(login_params[:password])
             @token = encode_token(user_id: @user.id)
@@ -13,14 +13,13 @@ class AuthController < ApplicationController
                 token: @token
             }, status: :accepted
         else
-            render json: {message: 'Incorrect password'}, status: :unauthorized
+            render json: { message: "Incorrect password" }, status: :unauthorized
         end
-
     end
 
-    private 
+    private
 
-    def login_params 
+    def login_params
         params.permit(:username, :password)
     end
 

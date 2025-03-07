@@ -14,14 +14,13 @@ Rails.application.routes.draw do
 
   resources :tasks
 
-  require 'sidekiq/web'
+  require "sidekiq/web"
 
   Rails.application.routes.draw do
-    mount Sidekiq::Web => '/sidekiq' # Accessible at http://localhost:3000/sidekiq
+    mount Sidekiq::Web => "/sidekiq" # Accessible at http://localhost:3000/sidekiq
   end
 
   post "/users", to: "users#create"
   get "/me", to: "users#me"
   post "/auth/login", to: "auth#login"
-
 end

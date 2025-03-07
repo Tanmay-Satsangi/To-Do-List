@@ -44,7 +44,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'pry'
+  gem "pry"
 end
 
 group :development do
@@ -59,16 +59,16 @@ group :test do
 end
 
 # To search, filtering, and sorting capabilities to ActiveRecord models using simple query methods.
-gem 'ransack'
+gem "ransack"
 
 # for pagination
-gem 'will_paginate' 
+gem "will_paginate"
 
-#Add Sidekiq gem for background application
-gem 'sidekiq'
+# Add Sidekiq gem for background application
+gem "sidekiq"
 
 # JWT authentication
-gem 'bcrypt', '~> 3.1', '>= 3.1.12'
-gem 'jwt', '~> 2.5'
-gem 'rack-cors'
-gem 'active_model_serializers', '~> 0.10.12'
+gem "bcrypt", "~> 3.1", ">= 3.1.12"
+gem "jwt", "~> 2.5"
+gem "rack-cors"
+gem "active_model_serializers", "~> 0.10.12"
