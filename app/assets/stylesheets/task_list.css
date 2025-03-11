@@ -1,40 +1,161 @@
+/* General Page Styling */
 body {
-    background-color: #C3B1E1;
+    background-color: #F7F9FC;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+/* Centered Container */
 .container {
     width: 80%;
     margin: auto;
-    text-align: center;
 }
 
-.task {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-h1 {
-    text-align: center;
-    color: #333333;
-}
-
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th {
-    background-color: #2C5F2D;
+    background-color: #1A237E;
     color: white;
+    padding: 12px;
+    text-align: left;
 }
 
 td {
-    background-color: #97BC62;
+    padding: 10px;
+    border-bottom: 1px solid #E0E3EB;
+}
+
+tr:nth-child(even) {
+    background-color: #F1F1F1;
+}
+
+/* Buttons Styling */
+button, input[type="submit"], .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-create {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #FF5252;
+    color: white;
+}
+
+/* Search Task */
+.search-task {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #E3F2FD;
+    border-radius: 5px;
+}
+
+.search-task input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Pagination */
+div[style="float :right"] {
+    margin-top: 10px;
+}
+
+/* Center the form */
+.task-form {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    margin: 40px auto;
+    width: 100%;
+}
+
+/* Form Title */
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #388E3C;
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: black;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: #d6d6d6;
 }

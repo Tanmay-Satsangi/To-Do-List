@@ -36,8 +36,8 @@
                     <td> <p> <%= task.deadline.strftime("%B %d, %Y %I:%M %p") if task.deadline.present? %> </p> </td> 
                     <td> <p> <%= task.priority.titleize if task.priority.present? %> <p> </td>
 
-                    <td> <%= button_to 'Edit', edit_task_path(task), method: :get %></td>
-                    <td> <%= button_to 'Delete', task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" } %> </td> 
+                    <td class="button"> <%= button_to 'Edit', edit_task_path(task), method: :get %></td>
+                    <td class="button"> <%= button_to 'Delete', task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" } %> </td> 
                 </tr>
             <% end %>
         </tbody>        

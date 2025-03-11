@@ -1,19 +1,25 @@
-<%= form_with model: @task do |f| %>
-    <h2>
-        <%= f.label :title %>: 
-        <%= f.text_area :title %> 
-
-        <br>
-
-        <%= f.label :deadline %>
-        <%= f.datetime_field :deadline, min: Time.current.strftime("%Y-%m-%dT%H:%M") %>
-        <br>
-
-        <%= f.label :priority %>
-        <%= f.select :priority, [["High", "high"], ["Medium", "medium"], ["Low", "low"]], { prompt: "Select Priority" } %>
-
-        <br>
-
-        <%= f.submit %>
+<%= form_with model: @task, class: "task-form" do |f| %>
+    <h2 class="form-title">
+        <%= @task.new_record? ? "Create Task" : "Edit Task" %>
     </h2>
+
+    <div class="form-group">
+        <%= f.label :title, "Title:", class: "form-label" %>
+        <%= f.text_area :title, class: "form-input", placeholder: "Enter task name..." %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :deadline, "Deadline:", class: "form-label" %>
+        <%= f.datetime_field :deadline, min: Time.current.strftime("%Y-%m-%dT%H:%M"), class: "form-input" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :priority, "Priority:", class: "form-label" %>
+        <%= f.select :priority, [["High", "high"], ["Medium", "medium"], ["Low", "low"]], { prompt: "Select Priority" }, class: "form-input" %>
+    </div>
+
+    <div class="form-actions">
+        <%= f.submit @task.new_record? ? "Create Task" : "Update Task", class: "btn-primary" %>
+        <%= link_to "Cancel and return to task listing", tasks_path, class: "btn-secondary" %>
+    </div>
 <% end %>
