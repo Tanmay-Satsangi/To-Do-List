@@ -1,0 +1,56 @@
+<div class="header">
+    <h1>To-Do List App</h1>
+    <%= button_to 'Create New Task', new_task_path, method: :get, class: "btn-create" %>
+
+    <div class="task">
+        <div class="search-task">
+            <%= search_form_for @q, url: tasks_path, method: :get do |f| %>
+                <%= f.search_field :title_cont, placeholder: "Enter Task Name" %>
+                <%= f.submit "Search", class: "btn btn-search" %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Task Name</th>
+                <th>Deadline</th>
+                <th>Priority</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody id="task-list">
+            <% @tasks.each_with_index do |task, index| %>
+                <tr>
+                    <td><%= (@tasks.current_page - 1) * @tasks.per_page + index + 1 %></td>
+                    <td><%= task.title %></td>
+                    <td><%= task.deadline.strftime("%B %d, %Y %I:%M %p") if task.deadline.present? %></td>
+                    <td><%= task.priority.titleize if task.priority.present? %></td>
+
+                    <td class="button">
+                        <%= button_to 'Edit', edit_task_path(task), method: :get, class: "btn-edit" %>
+                    </td>
+                    <td class="button">
+                        <%= button_to 'Delete', task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-delete" %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<br><br>
+
+<div class="pagination-container">
+    <%= will_paginate @tasks %>
+</div>
+
+<%= stylesheet_link_tag "task_list" %>
