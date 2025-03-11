@@ -66,3 +66,4 @@ gem "will_paginate"
 
 #Add Sidekiq gem for background application
 gem 'sidekiq'
+ 
