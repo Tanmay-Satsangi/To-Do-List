@@ -1,46 +1,31 @@
 /* General Page Styling */
 body {
-    background-color: #F7F9FC;
-    color: #333333;
-    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Centered Container */
-.container {
-    width: 80%;
-    margin: auto;
+/* Header Section */
+.header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Table Styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #FFFFFF;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
 }
 
-th {
-    background-color: #1A237E;
+.btn-create {
+    background-color: #4CAF50;
     color: white;
-    padding: 12px;
-    text-align: left;
-}
-
-td {
-    padding: 10px;
-    border-bottom: 1px solid #E0E3EB;
-}
-
-tr:nth-child(even) {
-    background-color: #F1F1F1;
-}
-
-/* Buttons Styling */
-button, input[type="submit"], .btn {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -50,42 +35,124 @@ button, input[type="submit"], .btn {
     display: inline-block;
 }
 
-.btn-create {
-    background-color: #4CAF50;
-    color: white;
+/* Search Task */
+.search-task {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
 }
 
+.search-task input[type="search"] {
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.btn.btn-search {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn.btn-search:hover {
+    background-color: #218838;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Buttons in Table */
 .btn-edit {
     background-color: #2196F3;
     color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
 }
 
 .btn-delete {
     background-color: #FF5252;
     color: white;
-}
-
-/* Search Task */
-.search-task {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #E3F2FD;
+    padding: 10px 15px;
+    border: none;
     border-radius: 5px;
-}
-
-.search-task input {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
 }
 
 /* Pagination */
-div[style="float :right"] {
-    margin-top: 10px;
+.pagination-container {
+    text-align: right;
+    width: 80%;
+    margin: 10px auto;
 }
 
-/* Center the form */
+.pagination-container .pagination {
+    display: inline-block;
+}
+
+.pagination-container .pagination a, .pagination-container .pagination span.current, .pagination-container .pagination span.gap {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.pagination-container .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination-container .pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/* Task Form Styling */
 .task-form {
     background-color: #ffffff;
     padding: 25px;
@@ -149,7 +216,7 @@ div[style="float :right"] {
     padding: 12px;
     border-radius: 5px;
     font-size: 16px;
-    width: 100%;
+    width: 95%;
     text-decoration: none;
     display: block;
     text-align: center;
